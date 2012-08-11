@@ -236,25 +236,29 @@ namespace WCell.MPQTool
 
 				m_wowDir = FindWowDir(wowDir);
 
-				if (m_wowDir != null)
-				{
-					Console.WriteLine("Found WoW in: " + m_wowDir);
-				}
+                if (m_wowDir != null)
+                {
+                    Console.WriteLine("Found WoW in: " + m_wowDir);
+                }
+                else
+                {
+                    Console.WriteLine("Could not find a valid WoW installation - Please enter the path manually.");
+                    m_wowDir = Console.ReadLine();
+                    if (m_wowDir == null)
+                    {
+                        // program shutdown
+                        return;
+                    }
+                }
 
 				string response;
 				var curDir = new FileInfo(".");
 
 				do
 				{
-					if (m_wowDir != null)
-					{
-						Console.WriteLine("Is this the correct path for your WoW installation?");
-						Console.WriteLine("Press y to confirm or n to re-enter location.");
-					}
-					else
-					{
-						Console.WriteLine("Could not find a valid WoW installation - Please enter the path manually.");
-					}
+					Console.WriteLine("Is this the correct path for your WoW installation?");
+					Console.WriteLine("Press y to confirm or n to re-enter location.");
+
 					response = Console.ReadLine();
 					if (response == null)
 					{
