@@ -141,7 +141,7 @@ namespace WCell.RealmServer.Factions
 			ByRace[(uint)RaceId.BloodElf] = fac = ById[(uint)FactionId.PLAYERBloodElf];
 			fac.SetHordePlayer();
 
-			foreach (var faction in ById)
+			foreach (var faction in ByTemplateId)
 			{
 				if (faction != null)
 				{
